@@ -90,6 +90,19 @@ final class LinkedListTests: XCTestCase {
         }
         //when
         sut.insert(new: 10, at: 9)
-        XCTAssertEqual(sut.removeLast(), 10)
+        //then
+        XCTAssertEqual(sut.removeLast(), result)
+    }
+    
+    func test_List에0부터9추가후_removeAt에5삽입시_5를반환하는지() {
+        //given
+        let result = 5
+        for value in 0...9 {
+            sut.append(new: value)
+        }
+        //when
+        let removeResult = sut.removeAt(at: result)
+        //then
+        XCTAssertEqual(removeResult, result)
     }
 }

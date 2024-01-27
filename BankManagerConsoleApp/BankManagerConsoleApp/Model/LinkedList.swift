@@ -89,6 +89,24 @@ final class LinkedList<Element> {
         }
         return node
     }
+    func removeAt(at index: Int) -> Element? {
+        
+        if index == 0 {
+            return removeFirst()
+        }
+        else if index == count-1 {
+            return removeLast()
+        }
+        let removeNode = search(at: index)
+        let prevNode = removeNode?.previous
+        let nextNode = removeNode?.next
+        
+        prevNode?.next = nextNode
+        nextNode?.previous = prevNode
+        
+        count -= 1
+        return removeNode?.data
+    }
     
     func removeFirst() -> Element? {
         let removeNodeValue = head?.data
