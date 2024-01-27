@@ -27,22 +27,67 @@ final class LinkedList<Element> {
         }
         node.next = newNode
         tail = newNode
+        tail?.previous = node
         count += 1
     }
     
-    func prepend(item: Element) {
+    func prepend(new item: Element) {
         let newNode = Node(data: item)
         
-        guard let currentHead = head else {
+        guard let node = head else {
             head = newNode
             tail = newNode
             count = 1
             return
         }
-        
-        newNode.next = currentHead
+        node.previous = newNode
         head = newNode
+        head?.next = node
         count += 1
+    }
+    
+    func insert(new item: Element, at index: Int) {
+        if index == 0 || index == count-1 {
+            append(new: item)
+            return
+        }
+        let newNode = Node(data: item)
+        let previousNode = search(at: index)
+        
+        let nextNode = previousNode?.next
+        previousNode?.next = newNode
+        nextNode?.previous = newNode
+        
+        newNode.next = nextNode
+        newNode.previous = previousNode
+        
+        count += 1
+    }
+    
+    private func search(at index: Int) -> Node<Element>? {
+        let isForward = (index <= count / 2)
+        var node: Node<Element>?
+        
+        if isForward {
+            node = head
+            for _ in 0...index-1 {
+                guard let next = node?.next else {
+                    break
+                }
+                node = next
+            }
+        }
+        else {
+            node = tail
+            let loopCount = count-index-1
+            for _ in 1...loopCount {
+                guard let previous = node?.previous else {
+                    break
+                }
+                node = previous
+            }
+        }
+        return node
     }
     
     func removeFirst() -> Element? {
@@ -57,51 +102,20 @@ final class LinkedList<Element> {
         return removeNodeValue
     }
     
+    func removeLast() -> Element? {
+        let removeNodeValue = tail?.data
+        
+        tail = tail?.previous
+        head = isEmpty ? tail : head
+        count = isEmpty ? count : count - 1
+        
+        return removeNodeValue
+    }
+    
     func removeAll() {
         head = nil
         tail = nil
         count = 0
-    }
-    
-    func insert(value: Element, index: Int) {
-        let newNode = Node(data: value)
-        
-        if index >= count || isEmpty {
-            append(new: value)
-            return
-        } else if index == 0 {
-            prepend(item: value)
-            return
-        }
-        
-        let serchNode = serch(index: index)
-        newNode.next = serchNode?.next
-        serchNode?.next = newNode
-        count += 1
-    }
-    
-    func removeAt(index: Int) -> Element? {
-        guard !isEmpty, index >= 0 else { return nil }
-        
-        if index == 0 {
-            return removeFirst()
-        } 
-       
-        let prevNode = serch(index: index)
-        let removeNode = prevNode?.next
-        prevNode?.next = removeNode?.next
-        count -= 1
-        
-        return removeNode?.data
-    }
-    
-    private func serch(index: Int) -> Node<Element>? {
-        var indexNode = head
-        
-        for _ in 0..<index - 1  {
-            indexNode = indexNode?.next
-        }
-        return indexNode
     }
 }
 

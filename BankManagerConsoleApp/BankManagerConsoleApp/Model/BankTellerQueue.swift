@@ -33,4 +33,8 @@ struct BankTellerQueue<Element> {
     func isEmpty() -> Bool {
         linkedList.isEmpty
     }
+    
+    func returnLinkedList() -> LinkedList<Element> {
+        return linkedList
+    }
 }

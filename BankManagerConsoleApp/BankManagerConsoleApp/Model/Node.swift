@@ -10,6 +10,7 @@ import Foundation
 final class Node<Element> {
     var data: Element
     var next: Node?
+    var previous: Node?
     
     init(data: Element) {
         self.data = data
