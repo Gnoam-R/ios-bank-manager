@@ -8,6 +8,7 @@ import Foundation
 
 enum BankManager {
     // - 은행 개점
+    
     case startWork
     case donwWork(Float)
     
@@ -17,6 +18,25 @@ enum BankManager {
             return "쉬는중"
         case.startWork:
             return "일중"
+        }
+    }
+}
+
+extension BankManager: Publisher {
+    func unSubscribe(observer: Observer) {
+        <#code#>
+    }
+    
+    func subscribe(observer: Observer) {
+        <#code#>
+    }
+    
+    var observers: [Observer] {
+        get {
+            <#code#>
+        }
+        set {
+            <#code#>
         }
     }
     

@@ -23,6 +23,7 @@
 		CCE1951A2B64FA8A00F0946F /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE195192B64FA8A00F0946F /* Bank.swift */; };
 		CCE1951C2B64FAA400F0946F /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE1951B2B64FAA400F0946F /* Customer.swift */; };
 		CCE1951E2B64FABD00F0946F /* BankOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE1951D2B64FABD00F0946F /* BankOne.swift */; };
+		CCE195202B65DB4700F0946F /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE1951F2B65DB4700F0946F /* Observer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +52,7 @@
 		CCE195192B64FA8A00F0946F /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		CCE1951B2B64FAA400F0946F /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		CCE1951D2B64FABD00F0946F /* BankOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankOne.swift; sourceTree = "<group>"; };
+		CCE1951F2B65DB4700F0946F /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				CCE1951D2B64FABD00F0946F /* BankOne.swift */,
 				CCE1951B2B64FAA400F0946F /* Customer.swift */,
 				C7694E79259C3EC00053667F /* main.swift */,
+				CCE1951F2B65DB4700F0946F /* Observer.swift */,
 			);
 			path = BankManagerConsoleApp;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCA535572B5F930700F282B4 /* BankTellerQueue.swift in Sources */,
+				CCE195202B65DB4700F0946F /* Observer.swift in Sources */,
 				CCE1951C2B64FAA400F0946F /* Customer.swift in Sources */,
 				CCE1951A2B64FA8A00F0946F /* Bank.swift in Sources */,
 				CCA535552B5F89A700F282B4 /* Node.swift in Sources */,
